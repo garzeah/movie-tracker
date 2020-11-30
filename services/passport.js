@@ -41,31 +41,21 @@ passport.use(
       callbackURL: "/auth/google/callback",
       proxy: true,
     },
-    // We took the code and user has come back to our server
-    // now we can get user details from it and create new
-    // record in our database.
     // accessToken gives us permission to handle/modify user's data
     // refreshToken allows us to refresh the accessToken after it expires
     // profile gives information regarding the user
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       // Checking if we have this ID already or not
-      User.findOne({ googleID: profile.id }).then((existingUser) => {
-        if (existingUser) {
-          // we already have a record w/ given profile ID
-          // tell passport that we are done creating a user and
-          // it should now resume the auth process
-          // 1st arg is usually error but since we handled it in else, we use null
-          // 2nd arg, just says we have an existingUser, everything is good
-          done(null, existingUser);
-        } else {
-          // we don't have a user record w/ this ID, make a new record
-          // Creating a model instance and saving it
-          new User({ googleID: profile.id })
-            .save()
-            // we get a promise in return and we handle it by calling done()
-            .then((user) => done(null, user));
-        }
-      });
+      const existingUser = await User.findOne({ googleID: profile.id });
+      // we already have a record with the given profile ID
+      if (existingUser) {
+        // 1st arg is usually error but since we handled it in else, we use null
+        // 2nd arg, just says we have an existingUser, everything is good
+        return done(null, existingUser);
+      }
+      // we don't have a user record w/ this ID, make a new record
+      const user = await new User({ googleID: profile.id }).save();
+      done(null, user);
     }
   )
 );

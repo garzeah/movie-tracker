@@ -1,0 +1,14 @@
+/* Have to use important because we need to overwrite Semantic UI */
+.header-container {
+  background: rgb(52, 53, 60) !important;
+  border-radius: 0 !important;
+}
+
+.header-container a {
+  color: white !important;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
