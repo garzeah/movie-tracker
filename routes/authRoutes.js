@@ -12,14 +12,20 @@ module.exports = (app) => {
 
   // Sending request back to google with our code included
   // Passport will see the code in our url and passport will handle it
-  app.get("/auth/google/callback", passport.authenticate("google"));
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    // Redirect the user back to Home page
+    (req, res) => {
+      res.redirect("/");
+    }
+  );
 
   // logs the user out
   app.get("/api/logout", (req, res) => {
     // takes the cookie and kills the ID in there
     req.logout();
-    // sending the user to see if we logged out or not
-    res.send(req.user);
+    res.redirect("/");
   });
 
   // checking to see if our authentication works

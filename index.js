@@ -34,6 +34,20 @@ app.use(passport.session());
 // Returns the function inside the file and runs w/ app passed in
 require("./routes/authRoutes")(app);
 
+// Makes sure Express behaves correctly in production environment
+if (process.env.NODE_ENV === "production") {
+  // Express will serve up production assets like main.js or main.css
+  app.use(express.static("client/build"));
+
+  // Express will serve up the index.html file if it doesn't recognize the route
+  const path = require("path");
+  // If we have nothing inside authroutes, billingRoutes, and client/build
+  // we will give you back the index.html file
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", index.html));
+  });
+}
+
 // Listening for incoming traffic at port 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
