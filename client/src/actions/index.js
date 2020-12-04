@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { FETCH_USER } from "./types";
 
 // Gets the user of person who is currently logged in

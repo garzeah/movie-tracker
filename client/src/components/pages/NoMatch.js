@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class Home extends Component {
+class NoMatch extends Component {
   render() {
     return (
       <div>
-        <p></p>
+        <p>Invalid url.</p>
       </div>
     );
   }
 }
 
-export default Home;
+export default NoMatch;

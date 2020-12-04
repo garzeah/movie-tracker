@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import logo from "../assets/images/logo.ico";
+import logo from "../../assets/images/logo.ico";
 import "./Header.css";
 
 class Header extends Component {
