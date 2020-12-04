@@ -8,7 +8,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="ui fluid action input" style={{ margin: "20px 300px" }}>
+      <div className="ui fluid action input" style={{ margin: "20px 10vh" }}>
         <input
           onChange={(event) => {
             this.setState({ searchInput: event.target.value });
