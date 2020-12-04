@@ -5,12 +5,11 @@ import omdb from "../../apis/omdb.js";
 import noImg from "../../assets/images/noImg.jpg";
 
 class SearchResults extends Component {
-  // ${process.env.REACT_APP_OMDB_KEY}
   state = { searchResults: {} };
 
   // Fetches search results from the OMDB API
   fetchSearchResults = async (mount) => {
-    const searchResults = await omdb.get(`?apikey=bf495efe`, {
+    const searchResults = await omdb.get(`${process.env.REACT_APP_OMDB_KEY}`, {
       params: {
         s: this.props.match.params.id,
         type: "movie",
