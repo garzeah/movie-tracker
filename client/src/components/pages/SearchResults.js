@@ -1,37 +1,38 @@
 import React, { Component } from "react";
 
 import SearchBar from "../SearchBar";
-import omdb from "../../apis/omdb.js";
+import tmdb from "../../apis/tmdb.js";
 import noImg from "../../assets/images/noImg.jpg";
 
 class SearchResults extends Component {
   state = { searchResults: {} };
 
-  // Fetches search results from the OMDB API
-  fetchSearchResults = async (mount) => {
-    const searchResults = await omdb.get(
-      `apikey=${process.env.REACT_APP_OMDB_KEY}`,
+  // Fetches search results from the tMDB API
+  fetchSearchResults = async () => {
+    const searchResults = await tmdb.get(
+      "search/movie?api_key=fb74f4c2b6ac4cd02a95209d2055a3fc",
       {
         params: {
-          s: this.props.match.params.id,
-          type: "movie",
+          query: this.props.match.params.id,
+          language: "en-US",
         },
       }
     );
-    if (mount) {
-      this.setState({ searchResults: searchResults.data.Search });
-    }
+    console.log(searchResults.data.results);
+    // if (mount) {
+    this.setState({ searchResults: searchResults.data.results });
+    // }
   };
 
   componentDidMount() {
-    this.mount = true;
+    // this.mount = true;
     // Fetching search results as soon as component mounts
-    this.fetchSearchResults(this.mount);
+    this.fetchSearchResults();
   }
 
   componentDidUpdate() {
-    this.mount = true;
-    this.fetchSearchResults(this.mount);
+    // this.mount = true;
+    this.fetchSearchResults();
   }
 
   // componentWillUnmount() {
@@ -40,13 +41,15 @@ class SearchResults extends Component {
   // }
 
   render() {
-    // We serve a missing image picture if value is empty from API
-    const imageValidation = (poster) => {
-      if (poster === "N/A") {
-        return noImg;
+    // Returns only the year of the date sent in
+    const movieYearValidation = (date) => {
+      if (date) {
+        date = date.split("-");
+        let dateYear = date[0];
+        return dateYear;
       }
 
-      return poster;
+      return "N/A";
     };
 
     const renderSearchResults = (searchResults) => {
@@ -57,12 +60,20 @@ class SearchResults extends Component {
               <div className="ui segment">
                 <img
                   className="ui medium image"
-                  src={imageValidation(searchResults[idx].Poster)}
-                  alt={`Poster of ${searchResults[idx].Title}`}
+                  src={
+                    searchResults[idx].poster_path
+                      ? `https://image.tmdb.org/t/p/w185/${searchResults[idx].poster_path}`
+                      : noImg
+                  }
+                  alt={`Poster of ${searchResults[idx].original_title}`}
                   style={{ maxHeight: "300px" }}
                 />
                 <div className="content">
-                  <h4 className="header">{`${searchResults[idx].Title} (${searchResults[idx].Year})`}</h4>
+                  <h4 className="header">{`${
+                    searchResults[idx].original_title
+                  } (${movieYearValidation(
+                    searchResults[idx].release_date
+                  )})`}</h4>
                 </div>
               </div>
             </div>
