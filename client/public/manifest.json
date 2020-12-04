@@ -22,5 +22,5 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "content_security_policy": "default-src 'self' https://mv-tracker.herokuapp.com/"
+  "content_security_policy": "img-src 'self' https://mv-tracker.herokuapp.com/"
 }
