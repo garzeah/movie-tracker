@@ -9,12 +9,15 @@ class SearchResults extends Component {
 
   // Fetches search results from the OMDB API
   fetchSearchResults = async (mount) => {
-    const searchResults = await omdb.get(`${process.env.REACT_APP_OMDB_KEY}`, {
-      params: {
-        s: this.props.match.params.id,
-        type: "movie",
-      },
-    });
+    const searchResults = await omdb.get(
+      `apikey=${process.env.REACT_APP_OMDB_KEY}`,
+      {
+        params: {
+          s: this.props.match.params.id,
+          type: "movie",
+        },
+      }
+    );
     if (mount) {
       this.setState({ searchResults: searchResults.data.Search });
     }
