@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
@@ -9,6 +9,7 @@ import SearchResults from "./pages/SearchResults";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 import MoviePage from "./pages/MoviePage";
+import history from "../history";
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <Router history={history}>
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -27,7 +28,7 @@ class App extends Component {
             <Route path="/movie/:id" component={MoviePage} />
             <Route component={NoMatch}></Route>
           </Switch>
-        </BrowserRouter>
+        </Router>
       </div>
     );
   }

@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import history from "../history";
+
 class SearchBar extends Component {
   state = {
     searchInput: "",
+  };
+
+  // If enter key is press, we route the user to their search results
+  handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      history.push(`/search/${this.state.searchInput}`);
+    }
   };
 
   render() {
@@ -13,6 +22,9 @@ class SearchBar extends Component {
         style={{ margin: "40px 15vh" }}
       >
         <input
+          onKeyDown={(e) => {
+            this.handleKeyDown(e);
+          }}
           onChange={(event) => {
             this.setState({ searchInput: event.target.value });
           }}
