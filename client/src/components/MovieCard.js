@@ -27,7 +27,6 @@ const MovieCard = ({ movieDetail, idx }) => {
                 : noImg
             }
             alt={`Poster of ${movieDetail.original_title}`}
-            style={{ maxHeight: "300px" }}
           />
           <div className="content">
             <h3 className="header" style={{ marginTop: "5px" }}>
