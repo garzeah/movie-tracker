@@ -8,7 +8,10 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="ui fluid action input" style={{ margin: "20px 10vh" }}>
+      <div
+        className="ui huge fluid action input"
+        style={{ margin: "40px 15vh" }}
+      >
         <input
           onChange={(event) => {
             this.setState({ searchInput: event.target.value });
@@ -16,7 +19,6 @@ class SearchBar extends Component {
           type="text"
           placeholder="Search for a movie..."
         />
-        {/* Want to take value of input and send it to searchResults w/ Redux */}
         <Link to={`/search/${this.state.searchInput}`} className="ui button">
           Search
         </Link>

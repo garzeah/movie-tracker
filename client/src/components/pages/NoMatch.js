@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-class NoMatch extends Component {
-  render() {
-    return (
-      <div>
-        <p>Invalid url.</p>
-      </div>
-    );
-  }
-}
+const NoMatch = () => {
+  return (
+    <div>
+      <h2 style={{ textAlign: "center" }}>Invalid URL</h2>
+    </div>
+  );
+};
 
 export default NoMatch;

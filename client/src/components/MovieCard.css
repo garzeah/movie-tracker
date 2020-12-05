@@ -1,0 +1,7 @@
+.movieCard {
+  cursor: pointer;
+}
+
+.movieCard:hover {
+  transform: scale(1.03);
+}

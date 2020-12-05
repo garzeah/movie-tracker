@@ -44,10 +44,13 @@ class Header extends Component {
 
   render() {
     return (
-      <div className={`${"ui small menu"} header-container`}>
+      <div className={`${"ui massive menu"} header-container`}>
         <img className="item logo" alt="Movie Tracker Logo" src={logo}></img>
         <Link to="/" className="item">
           Home
+        </Link>
+        <Link to="/search" className="item">
+          Search
         </Link>
         {this.renderContent()}
       </div>

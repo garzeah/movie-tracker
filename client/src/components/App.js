@@ -6,6 +6,7 @@ import * as actions from "../actions";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
+import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/search" component={Search} />
             <Route exact path="/search/:id" component={SearchResults} />
             <Route component={NoMatch}></Route>
           </Switch>

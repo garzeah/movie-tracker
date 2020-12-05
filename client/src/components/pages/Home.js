@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import SearchBar from "../SearchBar";
+import React from "react";
 
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <SearchBar />
-      </div>
-    );
-  }
-}
+import MovieCategory from "../MovieCategory";
+
+const Home = () => {
+  return (
+    <div>
+      <MovieCategory title="Popular" category="popular" />
+      <MovieCategory title="Top Rated" category="top_rated" />
+    </div>
+  );
+};
 
 export default Home;
