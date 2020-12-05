@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
+import MoviePage from "./pages/MoviePage";
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +23,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/search" component={Search} />
-            <Route exact path="/search/:id" component={SearchResults} />
+            <Route path="/search/:id" component={SearchResults} />
+            <Route path="/movie/:id" component={MoviePage} />
             <Route component={NoMatch}></Route>
           </Switch>
         </BrowserRouter>

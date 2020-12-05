@@ -9,7 +9,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div
-        className="ui huge fluid action input"
+        className="ui big fluid action input"
         style={{ margin: "40px 15vh" }}
       >
         <input
