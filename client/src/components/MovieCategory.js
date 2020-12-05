@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import MovieList from "./MovieList";
 import tmdb from "../apis/tmdb.js";
-import key from "../apis/apiKey.js";
 
 class MovieCategory extends Component {
   state = { categoryResults: null };
@@ -10,7 +9,7 @@ class MovieCategory extends Component {
   fetchCategoryResults = async () => {
     const categoryResults = await tmdb.get(`/movie/${this.props.category}`, {
       params: {
-        api_key: key,
+        api_key: "fb74f4c2b6ac4cd02a95209d2055a3fc",
       },
     });
     this.setState({

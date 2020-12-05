@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import SearchBar from "../SearchBar";
 import MovieList from "../MovieList";
 import tmdb from "../../apis/tmdb.js";
-import key from "../../apis/apiKey.js";
 
 class SearchResults extends Component {
   state = { searchResults: null };
@@ -12,7 +11,7 @@ class SearchResults extends Component {
   fetchSearchResults = async (userInput) => {
     const searchResults = await tmdb.get("search/movie", {
       params: {
-        api_key: key,
+        api_key: "fb74f4c2b6ac4cd02a95209d2055a3fc",
         query: userInput,
       },
     });
