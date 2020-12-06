@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
+const { resolveSoa } = require("dns");
 // Have to call this before passport bc passport needs
 // data related to this
 require("./models/User");
@@ -38,6 +39,7 @@ require("./routes/authRoutes")(app);
 if (process.env.NODE_ENV === "production") {
   // Express will serve up production assets like main.js or main.css
   app.use(express.static("client/build"));
+  app.use("*", express.static("client/build"));
 
   // Express will serve up the index.html file if it doesn't recognize the route
   const path = require("path");
