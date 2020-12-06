@@ -39,6 +39,8 @@ require("./routes/authRoutes")(app);
 if (process.env.NODE_ENV === "production") {
   // Express will serve up production assets like main.js or main.css
   app.use(express.static("client/build"));
+
+  // Not sure why but fixes clicking URLs appended to root URL
   app.use("*", express.static("client/build"));
 
   // Express will serve up the index.html file if it doesn't recognize the route
