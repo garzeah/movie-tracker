@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === "production") {
   // Express will serve up production assets like main.js or main.css
   app.use(express.static("client/build"));
 
-  // Not sure why but fixes clicking URLs appended to root URL
+  // Enable this if you have routing URL issues outside of root
   // app.use("*", express.static("client/build"));
 
   // Express will serve up the index.html file if it doesn't recognize the route
