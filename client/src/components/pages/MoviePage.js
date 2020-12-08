@@ -40,11 +40,11 @@ class MoviePage extends Component {
       }
 
       return (
-        <div>
+        <div className="ui segment" style={{ margin: "0 20px" }}>
           <h1>{movieData.original_title}</h1>
           <div className="movieProfileContainer">
             <img
-              className="ui medium image"
+              className="ui image"
               src={
                 movieData.poster_path ? (
                   `https://image.tmdb.org/t/p/w185/${movieData.poster_path}`

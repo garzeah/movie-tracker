@@ -16,11 +16,12 @@ const MovieCard = ({ movieDetail, idx }) => {
   };
 
   return (
-    <div key={idx} className="8 wide column">
+    <div key={idx} className="column">
       <Link to={`/movie/${movieDetail.id}`}>
         <div className={`${"ui segment"} ${"movieCard"}`}>
           <img
-            className="ui medium image"
+            className="ui medium rounded image"
+            style={{ margin: "0 auto" }}
             src={
               movieDetail.poster_path
                 ? `https://image.tmdb.org/t/p/w185/${movieDetail.poster_path}`
@@ -29,7 +30,13 @@ const MovieCard = ({ movieDetail, idx }) => {
             alt={`Poster of ${movieDetail.original_title}`}
           />
           <div className="content">
-            <h3 className="header" style={{ marginTop: "5px" }}>
+            <h3
+              className="header"
+              style={{
+                marginTop: "5px",
+                textAlign: "center",
+              }}
+            >
               {`${movieDetail.original_title} (${movieYearValidation(
                 movieDetail.release_date
               )})`}
