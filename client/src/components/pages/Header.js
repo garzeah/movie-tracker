@@ -45,7 +45,17 @@ class Header extends Component {
   render() {
     return (
       <div className={`${"ui huge menu"} header-container`}>
-        <img className="item logo" alt="Movie Tracker Logo" src={logo}></img>
+        <div
+          className="ui mini image"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginLeft: "25px",
+          }}
+        >
+          <img alt="Movie Tracker Logo" src={logo}></img>
+        </div>
         <Link to="/" className="item">
           Home
         </Link>

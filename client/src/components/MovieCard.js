@@ -35,6 +35,7 @@ const MovieCard = ({ movieDetail, idx }) => {
               style={{
                 marginTop: "5px",
                 textAlign: "center",
+                fontSize: "1.1vw",
               }}
             >
               {`${movieDetail.original_title} (${movieYearValidation(
