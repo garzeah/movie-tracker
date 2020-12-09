@@ -52,6 +52,7 @@ class Header extends Component {
             justifyContent: "center",
             alignItems: "center",
             marginLeft: "25px",
+            marginRight: "10px",
           }}
         >
           <img alt="Movie Tracker Logo" src={logo}></img>
