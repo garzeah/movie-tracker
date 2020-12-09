@@ -29,20 +29,20 @@ const MovieCard = ({ movieDetail, idx }) => {
             }
             alt={`Poster of ${movieDetail.original_title}`}
           />
-          <div className="content">
-            <h3
-              className="header"
-              style={{
-                marginTop: "5px",
-                textAlign: "center",
-                fontSize: "1.1vw",
-              }}
-            >
-              {`${movieDetail.original_title} (${movieYearValidation(
-                movieDetail.release_date
-              )})`}
-            </h3>
-          </div>
+        </div>
+        <div className="content">
+          <h3
+            className="header"
+            style={{
+              marginTop: "5px",
+              textAlign: "center",
+              fontSize: "1.1vw",
+            }}
+          >
+            {`${movieDetail.original_title} (${movieYearValidation(
+              movieDetail.release_date
+            )})`}
+          </h3>
         </div>
       </Link>
     </div>

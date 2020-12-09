@@ -25,7 +25,10 @@ class MovieCategory extends Component {
     return (
       <div style={{ display: "flex", flexDirection: "column" }}>
         <h1 style={{ margin: "30px auto 20px auto" }}>{this.props.title}</h1>
-        <div className="ui five column grid" style={{ margin: "0 20px" }}>
+        <div
+          className="ui five column stackable grid"
+          style={{ margin: "0 20px" }}
+        >
           <MovieList moviesData={this.state.categoryResults} />
         </div>
       </div>
