@@ -35,7 +35,7 @@ class SearchResults extends Component {
       <div>
         <SearchBar />
         <div
-          className="ui six column stackable grid"
+          className="ui five column stackable grid"
           style={{ margin: "0 20px" }}
         >
           <MovieList moviesData={this.state.searchResults} />

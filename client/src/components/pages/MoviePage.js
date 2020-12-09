@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import tmdb from "../../apis/tmdb.js";
+import noImg from "../../assets/images/noImg.png";
 import "./MoviePage.css";
 
 class MoviePage extends Component {
@@ -46,11 +47,9 @@ class MoviePage extends Component {
             <img
               className="ui image"
               src={
-                movieData.poster_path ? (
-                  `https://image.tmdb.org/t/p/w185/${movieData.poster_path}`
-                ) : (
-                  <p>No image</p>
-                )
+                movieData.poster_path
+                  ? `https://image.tmdb.org/t/p/w185/${movieData.poster_path}`
+                  : noImg
               }
               alt={`Poster of ${movieData.original_title}`}
             />

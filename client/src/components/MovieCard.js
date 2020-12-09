@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./MovieCard.css";
-import noImg from "../assets/images/noImg.jpg";
+import noImg from "../assets/images/noImg.png";
 
 const MovieCard = ({ movieDetail, idx }) => {
   // Returns only the year of the date sent in
@@ -36,7 +36,7 @@ const MovieCard = ({ movieDetail, idx }) => {
             style={{
               marginTop: "5px",
               textAlign: "center",
-              fontSize: "1.1vw",
+              fontSize: "2vh",
             }}
           >
             {`${movieDetail.original_title} (${movieYearValidation(
