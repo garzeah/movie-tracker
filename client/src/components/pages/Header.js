@@ -16,7 +16,7 @@ class Header extends Component {
             <div className="right menu">
               <div className="item">
                 <a href="/auth/google">
-                  <button className="ui google plus button">
+                  <button className="ui google plus large button">
                     Google Login
                   </button>
                 </a>
@@ -33,7 +33,7 @@ class Header extends Component {
             <div className="right menu">
               <div className="item">
                 <a href="/api/logout">
-                  <button className="negative ui button">Log Out</button>
+                  <button className="negative ui large button">Log Out</button>
                 </a>
               </div>
             </div>

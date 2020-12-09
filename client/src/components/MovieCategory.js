@@ -30,7 +30,9 @@ class MovieCategory extends Component {
           marginBottom: "20px",
         }}
       >
-        <h1 style={{ margin: "30px auto 20px auto" }}>{this.props.title}</h1>
+        <h1 style={{ margin: "30px auto 20px auto", fontFamily: "verdana" }}>
+          {this.props.title}
+        </h1>
         <div
           className="ui five column stackable grid"
           style={{ margin: "0 20px" }}
