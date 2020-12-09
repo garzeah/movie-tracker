@@ -41,7 +41,7 @@ class MoviePage extends Component {
       }
 
       return (
-        <div className="ui segment" style={{ margin: "0 20px" }}>
+        <div className="ui segment">
           <h1>{movieData.original_title}</h1>
           <div className="movieProfileContainer">
             <img

@@ -23,7 +23,13 @@ class MovieCategory extends Component {
 
   render() {
     return (
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          marginBottom: "20px",
+        }}
+      >
         <h1 style={{ margin: "30px auto 20px auto" }}>{this.props.title}</h1>
         <div
           className="ui five column stackable grid"
