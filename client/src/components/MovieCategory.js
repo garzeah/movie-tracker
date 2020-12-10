@@ -30,7 +30,12 @@ class MovieCategory extends Component {
           marginBottom: "20px",
         }}
       >
-        <h1 style={{ margin: "30px auto 20px auto", fontFamily: "verdana" }}>
+        <h1
+          style={{
+            margin: "30px auto 20px auto",
+            fontFamily: "verdana",
+          }}
+        >
           {this.props.title}
         </h1>
         <div

@@ -19,7 +19,7 @@ class SearchBar extends Component {
     return (
       <div
         className="ui big fluid action input"
-        style={{ margin: "40px 15vh" }}
+        style={{ margin: "40px 40px" }}
       >
         <input
           onKeyDown={(e) => {

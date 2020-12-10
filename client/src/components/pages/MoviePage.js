@@ -15,7 +15,7 @@ class MoviePage extends Component {
         movie_id: this.props.match.params.id,
       },
     });
-    console.log(movieData.data);
+    // console.log(movieData.data);
     this.setState({ movieData: movieData.data });
   };
 
@@ -32,6 +32,27 @@ class MoviePage extends Component {
   }
 
   render() {
+    const inputValidation = (input) => {
+      if (input == null) {
+        return "N/A";
+      }
+
+      return input;
+    };
+
+    // Gets the value of each object in an array and returns it in a new array
+    const processArray = (arr) => {
+      if (arr === undefined || arr.length === 0) {
+        return "N/A";
+      }
+
+      let processedArray = [];
+      arr.map((el, idx) => {
+        processedArray[idx] = el.name;
+      });
+      return processedArray.join(", ");
+    };
+
     const renderMoviePage = (movieData) => {
       if (movieData == null) {
         return;
@@ -41,23 +62,43 @@ class MoviePage extends Component {
       }
 
       return (
-        <div className="ui segment">
+        <div className="moviePageContainer">
           <h1>{movieData.original_title}</h1>
-          <div className="movieProfileContainer">
-            <img
-              className="ui image"
-              src={
-                movieData.poster_path
-                  ? `https://image.tmdb.org/t/p/w185/${movieData.poster_path}`
-                  : noImg
-              }
-              alt={`Poster of ${movieData.original_title}`}
-            />
-            <p>
-              {movieData.overview
-                ? movieData.overview
-                : "No plot summary found."}
-            </p>
+          <div className="movieHeader">
+            <div className="ui segment" style={{ margin: "0 auto" }}>
+              <img
+                style={{ margin: "0 auto" }}
+                className="ui image"
+                src={
+                  movieData.poster_path
+                    ? `https://image.tmdb.org/t/p/w185/${movieData.poster_path}`
+                    : noImg
+                }
+                alt={`Poster of ${movieData.original_title}`}
+              />
+            </div>
+            <div className="overview">
+              <h2>Overview</h2>
+              <p>
+                {movieData.overview
+                  ? movieData.overview
+                  : "No plot summary found."}
+              </p>
+            </div>
+          </div>
+
+          <h1 className="headerDetails">Details</h1>
+          <div className="movieDetails">
+            <h4>Genre(s)</h4>
+            <p>{processArray(movieData.genres)}</p>
+            <h4>Status</h4>
+            <p>{inputValidation(movieData.status)}</p>
+            <h4>Release Date</h4>
+            <p>{inputValidation(movieData.release_date)}</p>
+            <h4>Runtime</h4>
+            <p>{`${inputValidation(movieData.runtime)} minutes`}</p>
+            <h4>Production Companies</h4>
+            <p>{processArray(movieData.production_companies)}</p>
           </div>
         </div>
       );

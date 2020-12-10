@@ -16,7 +16,7 @@ class Header extends Component {
             <div className="right menu">
               <div className="item">
                 <a href="/auth/google">
-                  <button className="ui google plus large button">
+                  <button className="ui google plus button">
                     Google Login
                   </button>
                 </a>
@@ -27,9 +27,6 @@ class Header extends Component {
       default:
         return (
           <React.Fragment>
-            {/* <a className="item">Completed</a>
-            <a className="item">Currently Watching</a>
-            <a className="item">Plan to Watch</a> */}
             <div className="right menu">
               <div className="item">
                 <a href="/api/logout">
@@ -44,7 +41,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div className={`${"ui huge menu"} header-container`}>
+      <div className={`${"ui menu"} header-container`}>
         <div
           className="ui mini image"
           style={{

@@ -4,7 +4,7 @@ import MovieCategory from "../MovieCategory";
 
 const Home = () => {
   return (
-    <div style={{ marginBottom: "60px" }}>
+    <div style={{ paddingBottom: "40px" }}>
       <MovieCategory title="Popular" category="popular" />
       <MovieCategory title="Top Rated" category="top_rated" />
     </div>
